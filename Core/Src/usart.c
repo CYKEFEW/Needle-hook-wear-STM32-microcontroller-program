@@ -153,6 +153,7 @@ void USART2_ModbusPoll(void)
 /* =========================
  * HAL 回调函数
  * ========================= */
+volatile uint8_t ConMode = 0; // 0:张力控制模式 1:速度控制模式
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
     /* USART1：命令行 */
@@ -176,7 +177,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
                 ADCAutoSend = 0;
                 printf("Stop auto send ADC value\n");
             }
-            else if (strncmp((char *)usart1_cmd_buf, "Con ", 4) == 0)
+            else if (strncmp((char *)usart1_cmd_buf, "Con ", 4) == 0 && ConMode == 1)
             {
                 float value = atof((char *)usart1_cmd_buf + 4);
                 control(value);
@@ -201,7 +202,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
             {
                 disable();
             }
-            else if (strncmp((char *)usart1_cmd_buf, "Con2 ", 5) == 0)
+            else if (strncmp((char *)usart1_cmd_buf, "Con2 ", 5) == 0 && ConMode == 1)
             {
                 float value = atof((char *)usart1_cmd_buf + 5);
                 control2(value);
@@ -228,7 +229,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
                 // printf("CH1:%.2f CH2:%.2f\n",CH1,CH2);
                 pid(CH1,CH2);
             }
-            else if (strncmp((char *)usart1_cmd_buf, "F", 1) == 0){
+            else if (strncmp((char *)usart1_cmd_buf, "F", 1) == 0 && ConMode == 0){
                 extern PID Force_Pid;
                 float target = 0.0f;
                 sscanf((char *)usart1_cmd_buf, "F %f",&target);
@@ -242,6 +243,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
                 Force_Pid.Kp = kp;
                 Force_Pid.Ki = ki;
                 Force_Pid.Kd = kd;
+            }
+            else if (strncmp((char *)usart1_cmd_buf, "ConMode", 7) == 0){
+                sscanf((char *)usart1_cmd_buf, "ConMode %hhu",&ConMode);
+                printf("Set Control Mode:%s\n",ConMode==0?"Force":"Speed");
             }
             else
             {
