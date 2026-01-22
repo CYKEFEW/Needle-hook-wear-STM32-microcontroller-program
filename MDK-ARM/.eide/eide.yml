@@ -1,0 +1,152 @@
+version: "4.1"
+name: ADCForceSensor
+type: ARM
+deviceName: STM32F103RC
+packDir: .pack/Keil/STM32F1xx_DFP.2.3.0
+srcDirs: []
+virtualFolder:
+  name: <virtual_root>
+  files: []
+  folders:
+    - name: Application
+      files: []
+      folders:
+        - name: MDK-ARM
+          files:
+            - path: startup_stm32f103xe.s
+          folders: []
+        - name: User
+          files: []
+          folders:
+            - name: Core
+              files:
+                - path: ../Core/Src/main.c
+                - path: ../Core/Src/stm32f1xx_it.c
+                - path: ../Core/Src/stm32f1xx_hal_msp.c
+                - path: ../Core/Src/usart.c
+                - path: ../Core/Src/printf.c
+                - path: ../Core/Src/Senddata.c
+                - path: ../Core/Src/control.c
+                - path: ../Core/Src/flash.c
+                - path: ../Core/Src/Zero.c
+                - path: ../Core/Src/delay.c
+                - path: ../Core/Src/key.c
+                - path: ../Core/Src/time.c
+              folders: []
+    - name: Drivers
+      files: []
+      folders:
+        - name: STM32F1xx_HAL_Driver
+          files:
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c
+            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c
+          folders: []
+        - name: CMSIS
+          files:
+            - path: ../Core/Src/system_stm32f1xx.c
+          folders: []
+dependenceList: []
+outDir: build
+miscInfo:
+  uid: a690ef72da727acd6bc0fdaa8095d192
+targets:
+  ADCForceSensor:
+    cppPreprocessAttrs:
+      defineList:
+        - USE_HAL_DRIVER
+        - STM32F103xE
+        - STM32F10X_HD
+      incList:
+        - .
+        - ../Core/Inc
+        - ../Drivers/STM32F1xx_HAL_Driver/Inc
+        - ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy
+        - ../Drivers/CMSIS/Device/ST/STM32F1xx/Include
+        - ../Drivers/CMSIS/Include
+        - .cmsis/include
+        - RTE/_ADCForceSensor
+      libList: []
+    excludeList: []
+    toolchain: AC5
+    toolchainConfigMap:
+      AC5:
+        archExtensions: ""
+        cpuType: Cortex-M3
+        floatingPointHardware: none
+        options:
+          version: 4
+          afterBuildTasks: []
+          asm-compiler: {}
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            CXX_FLAGS: --diag_suppress=1 --diag_suppress=1295
+            C_FLAGS: --diag_suppress=1 --diag_suppress=1295
+            c99-mode: true
+            one-elf-section-per-function: true
+            optimization: level-3
+            warnings: all-warnings
+          global:
+            output-debug-info: enable
+          linker:
+            $outputTaskExcludes:
+              - .bin
+            output-format: elf
+        scatterFilePath: ""
+        storageLayout:
+          RAM:
+            - id: 1
+              isChecked: true
+              mem:
+                size: "0x0000C000"
+                startAddr: "0x20000000"
+              noInit: false
+              tag: IRAM
+          ROM:
+            - id: 1
+              isChecked: true
+              isStartup: true
+              mem:
+                size: "0x00040000"
+                startAddr: "0x08000000"
+              tag: IROM
+        useCustomScatterFile: false
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: ""
+        cpuInfo:
+          cpuName: "null"
+          vendor: "null"
+        otherCmds: ""
+        proType: 1
+        speed: 8000
+      OpenOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        interface: stlink
+        target: stm32f1x
+      STLink:
+        address: "0x08000000"
+        bin: ""
+        elFile: None
+        optionBytes: .eide/adcforcesensor.st.option.bytes.ini
+        otherCmds: ""
+        proType: SWD
+        resetMode: default
+        runAfterProgram: true
+        speed: "1000"
+    uploader: OpenOCD
