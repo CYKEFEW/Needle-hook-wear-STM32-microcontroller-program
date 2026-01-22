@@ -204,7 +204,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
             else if (strncmp((char *)usart1_cmd_buf, "Con2 ", 5) == 0)
             {
                 float value = atof((char *)usart1_cmd_buf + 5);
-                control(value);
+                control2(value);
             }
             else if (strncmp((char *)usart1_cmd_buf, "Forward2", 8) == 0)
             {
@@ -234,6 +234,14 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
                 sscanf((char *)usart1_cmd_buf, "F %f",&target);
                 Force_Pid.target = target;
                 printf("Set Force target:%.2f\n",target);
+            }
+            else if (strncmp((char *)usart1_cmd_buf, "pid", 3) == 0){
+                extern PID Force_Pid;
+                float kp,ki,kd;
+                sscanf((char *)usart1_cmd_buf, "pid %f %f %f",&kp,&ki,&kd);
+                Force_Pid.Kp = kp;
+                Force_Pid.Ki = ki;
+                Force_Pid.Kd = kd;
             }
             else
             {
