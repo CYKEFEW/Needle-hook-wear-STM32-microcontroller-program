@@ -52,6 +52,7 @@
 文件：`Core/Src/pid.c`
 - 输入：`Data CH1 CH2` 命令提供两路测量值
 - 目标：`F x` 设置目标力值
+- 参数：`pid Kp Ki Kd` 设置 PID 参数
 - 输出：将 PID 输出映射为电机 RPM（限制 0~400）
 - 指示：PID_LED 翻转以指示控制活动
 
@@ -71,6 +72,7 @@
 | `Enable2` / `Disable2` | 第二路电机使能 |
 | `Data a b` | 输入两路传感数据，触发 PID 计算 |
 | `F x` | 张力控制 |
+| `pid kp ki kd` | 设置 PID 参数 |
 
 ### 6) Modbus RTU（USART2）
 文件：`Core/Src/usart.c`
@@ -99,4 +101,3 @@
 2) 使用 Keil MDK 或 STM32CubeIDE 编译下载  
 
 如需调整串口波特率、引脚或计时参数，请优先在 `.ioc` 中修改并重新生成代码。
-
