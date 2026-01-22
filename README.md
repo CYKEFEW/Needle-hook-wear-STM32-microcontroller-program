@@ -7,8 +7,6 @@
 - TIM1/TIM4 PWM 脉冲控制步进电机（含方向/使能）
 - 简单 PID 控制闭环（基于采样数据调节转速）
 
-> 备注：仓库中未找到 `AGENTS.md`，因此仅按项目现状撰写说明。
-
 ## 硬件与资源
 - MCU：STM32F103RCTx（CubeMX 工程：`ADCForceSensor.ioc`）
 - 系统时钟：HSE 外部晶振，PLL 72MHz
@@ -68,11 +66,11 @@
 | `Con x` | 设置电机转速（RPM） |
 | `Forward` / `Backward` | 设置电机方向 |
 | `Enable` / `Disable` | 使能/禁用电机 |
-| `Con2 x` | 第二路电机转速（当前代码调用 `control()`） |
+| `Con2 x` | 第二路电机转速 |
 | `Forward2` / `Backward2` | 第二路电机方向 |
 | `Enable2` / `Disable2` | 第二路电机使能 |
 | `Data a b` | 输入两路传感数据，触发 PID 计算 |
-| `F x` | 设置 PID 目标值 |
+| `F x` | 张力控制 |
 
 ### 6) Modbus RTU（USART2）
 文件：`Core/Src/usart.c`
@@ -102,7 +100,3 @@
 
 如需调整串口波特率、引脚或计时参数，请优先在 `.ioc` 中修改并重新生成代码。
 
-## 可能需要注意的点
-- Flash 写入地址是否与实际芯片容量匹配（`0x08060000`）
-- `Con2` 命令当前调用的是 `control()`（若需第二路请改为 `control2()`）
-- Modbus 接收逻辑目前仅为框架，需补全接收与轮询调用
