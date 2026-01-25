@@ -26,4 +26,6 @@ adcforcesensor\stm32f1xx_hal_exti.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1
 adcforcesensor\stm32f1xx_hal_exti.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 adcforcesensor\stm32f1xx_hal_exti.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 adcforcesensor\stm32f1xx_hal_exti.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+adcforcesensor\stm32f1xx_hal_exti.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+adcforcesensor\stm32f1xx_hal_exti.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 adcforcesensor\stm32f1xx_hal_exti.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h

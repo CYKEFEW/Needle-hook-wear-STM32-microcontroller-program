@@ -1,13 +1,20 @@
 --cpu Cortex-M3
 "adcforcesensor\startup_stm32f103xe.o"
-"adcforcesensor\main.o"
-"adcforcesensor\stm32f1xx_it.o"
-"adcforcesensor\stm32f1xx_hal_msp.o"
 "adcforcesensor\adc.o"
 "adcforcesensor\printf.o"
 "adcforcesensor\senddata.o"
 "adcforcesensor\system_stm32f1xx.o"
 "adcforcesensor\usart.o"
+"adcforcesensor\main.o"
+"adcforcesensor\stm32f1xx_it.o"
+"adcforcesensor\stm32f1xx_hal_msp.o"
+"adcforcesensor\control.o"
+"adcforcesensor\delay.o"
+"adcforcesensor\flash.o"
+"adcforcesensor\key.o"
+"adcforcesensor\pid.o"
+"adcforcesensor\time.o"
+"adcforcesensor\zero.o"
 "adcforcesensor\stm32f1xx_hal_gpio_ex.o"
 "adcforcesensor\stm32f1xx_hal_adc.o"
 "adcforcesensor\stm32f1xx_hal_adc_ex.o"
@@ -25,7 +32,7 @@
 "adcforcesensor\stm32f1xx_hal_tim_ex.o"
 "adcforcesensor\stm32f1xx_hal_uart.o"
 "adcforcesensor\system_stm32f1xx_1.o"
---strict --scatter "ADCForceSensor\ADCForceSensor.sct"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--library_type=microlib --strict --scatter "ADCForceSensor\ADCForceSensor.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "ADCForceSensor.map" -o ADCForceSensor\ADCForceSensor.axf

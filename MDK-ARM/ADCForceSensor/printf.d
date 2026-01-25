@@ -27,5 +27,7 @@ adcforcesensor\printf.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_e
 adcforcesensor\printf.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 adcforcesensor\printf.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 adcforcesensor\printf.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+adcforcesensor\printf.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+adcforcesensor\printf.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 adcforcesensor\printf.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 adcforcesensor\printf.o: E:\Keil_V5\ARM\ARMCC\Bin\..\include\stdio.h

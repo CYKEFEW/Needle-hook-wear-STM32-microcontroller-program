@@ -27,5 +27,7 @@ adcforcesensor\senddata.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc
 adcforcesensor\senddata.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 adcforcesensor\senddata.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 adcforcesensor\senddata.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+adcforcesensor\senddata.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+adcforcesensor\senddata.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 adcforcesensor\senddata.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 adcforcesensor\senddata.o: E:\Keil_V5\ARM\ARMCC\Bin\..\include\stdio.h

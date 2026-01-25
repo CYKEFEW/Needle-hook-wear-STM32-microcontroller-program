@@ -3,12 +3,12 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ¦ÌVision V5.27.1.0
-Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: ÓÀ¿µ ³Â, 233, LIC=TIVNB-2CQJY-DYZV3-AEJLW-KLD29-J0CGA
+IDE-Version: ¦ÌVision V5.14.2
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Cortex-M3, 233, LIC=TIVNB-2CQJY-DYZV3-AEJLW-KLD29-J0CGA
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.25.0.0
+Toolchain:       MDK-ARM Standard  Version: 5.25.0.0
 Toolchain Path:  E:\Keil_V5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 6 (build 750)
 Assembler:       Armasm.exe V5.06 update 6 (build 750)
@@ -22,12 +22,56 @@ Dialog DLL:      TCM.DLL V1.34.0.0
  
 <h2>Project:</h2>
 E:\Projects\STM32\ADCForceSensor\MDK-ARM\ADCForceSensor.uvprojx
-Project File Date:  12/07/2025
+Project File Date:  01/25/2026
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'E:\Keil_V5\ARM\ARMCC\Bin'
-Build target 'ADCForceSensor'
+Rebuild target 'ADCForceSensor'
+assembling startup_stm32f103xe.s...
+compiling adc.c...
+compiling printf.c...
+..\Core\Src\printf.c(26): warning:  #1-D: last line of file ends without a newline
+   
+..\Core\Src\printf.c: 1 warning, 0 errors
+compiling Senddata.c...
+compiling system_stm32f1xx.c...
 compiling usart.c...
+compiling main.c...
+compiling stm32f1xx_it.c...
+compiling stm32f1xx_hal_msp.c...
+compiling control.c...
+compiling delay.c...
+..\Core\Src\delay.c(11): warning:  #1-D: last line of file ends without a newline
+  }
+..\Core\Src\delay.c: 1 warning, 0 errors
+compiling flash.c...
+..\Core\Src\flash.c(50): warning:  #1-D: last line of file ends without a newline
+  }
+..\Core\Src\flash.c: 1 warning, 0 errors
+compiling key.c...
+compiling pid.c...
+..\Core\Src\pid.c(44): warning:  #1-D: last line of file ends without a newline
+  }
+..\Core\Src\pid.c: 1 warning, 0 errors
+compiling time.c...
+compiling Zero.c...
+compiling stm32f1xx_hal_gpio_ex.c...
+compiling stm32f1xx_hal_adc.c...
+compiling stm32f1xx_hal_adc_ex.c...
+compiling stm32f1xx_hal.c...
+compiling stm32f1xx_hal_rcc.c...
+compiling stm32f1xx_hal_rcc_ex.c...
+compiling stm32f1xx_hal_gpio.c...
+compiling stm32f1xx_hal_dma.c...
+compiling stm32f1xx_hal_cortex.c...
+compiling stm32f1xx_hal_pwr.c...
+compiling stm32f1xx_hal_flash.c...
+compiling stm32f1xx_hal_flash_ex.c...
+compiling stm32f1xx_hal_exti.c...
+compiling stm32f1xx_hal_tim.c...
+compiling stm32f1xx_hal_tim_ex.c...
+compiling stm32f1xx_hal_uart.c...
+compiling system_stm32f1xx.c...
 linking...
 ADCForceSensor\ADCForceSensor.axf: Error: L6200E: Symbol SystemInit multiply defined (by system_stm32f1xx_1.o and system_stm32f1xx.o).
 ADCForceSensor\ADCForceSensor.axf: Error: L6200E: Symbol __asm___18_system_stm32f1xx_c_5d646a67____REV16 multiply defined (by system_stm32f1xx_1.o and system_stm32f1xx.o).
@@ -38,25 +82,20 @@ ADCForceSensor\ADCForceSensor.axf: Error: L6200E: Symbol APBPrescTable multiply 
 ADCForceSensor\ADCForceSensor.axf: Error: L6200E: Symbol SystemCoreClock multiply defined (by system_stm32f1xx_1.o and system_stm32f1xx.o).
 ADCForceSensor\ADCForceSensor.axf: Error: L6200E: Symbol SystemCoreClockUpdate multiply defined (by system_stm32f1xx_1.o and system_stm32f1xx.o).
 Not enough information to list image symbols.
-Not enough information to list load addresses in the image map.
+Not enough information to list the image map.
 Finished: 2 information, 0 warning and 8 error messages.
-"ADCForceSensor\ADCForceSensor.axf" - 8 Error(s), 0 Warning(s).
+"ADCForceSensor\ADCForceSensor.axf" - 8 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
                 http://www.keil.com/pack/ARM.CMSIS.5.2.0.pack
-                ARM.CMSIS.5.2.0
+                ARM::CMSIS:CORE:5.0.2
                 CMSIS (Cortex Microcontroller Software Interface Standard)
    * Component: CORE Version: 5.0.2
 
-Package Vendor: Keil
-                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.3.0.pack
-                Keil.STM32F1xx_DFP.2.3.0
-                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
-
 <h2>Collection of Component include folders:</h2>
-  .\RTE\_ADCForceSensor
+  E:\Projects\STM32\ADCForceSensor\MDK-ARM\RTE
   E:\Keil_V5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include
   E:\Keil_V5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include
 
@@ -64,7 +103,6 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.0.2
 Target not created.
-Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
