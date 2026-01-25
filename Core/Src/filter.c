@@ -12,19 +12,19 @@ void lpf1_config(lpf1_t *f, float cutoff_hz, float fs_hz)
     f->inited = 0u;
 
     if (cutoff_hz <= 0.0f || fs_hz <= 0.0f) {
-        f->alpha = 0.0f; // bypass marker
+        f->alpha = 0.0f; // 旁路标记
         return;
     }
 
     const float Ts = 1.0f / fs_hz;
-    // alpha = exp(-2*pi*fc*Ts)
+    // 系数计算公式：alpha = exp(-2*pi*fc*Ts)
     f->alpha = expf(-2.0f * M_PI * cutoff_hz * Ts);
 }
 
 float lpf1_update(lpf1_t *f, float x)
 {
     if (!f) return x;
-    // bypass
+    // 旁路
     if (f->alpha <= 0.0f) return x;
 
     if (!f->inited) {

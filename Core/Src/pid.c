@@ -4,14 +4,14 @@
 
 // ========== 可调参数（先给默认值，后续整定时修改） ==========
 #define PID_FS_HZ              (50.0f)   // 控制频率/采样频率
-#define TENSION_LPF_CUTOFF_HZ  (3.0f)    // TODO: 截止频率，<=0 表示不滤波
-#define ERROR_DEADBAND_N       (0.05f)    // TODO: 张力误差死区(N)，0 表示关闭
-#define DRPM_MAX_PER_STEP      (16.0f)    // TODO: 转速变化率限制(RPM/step)，0 表示关闭
+#define TENSION_LPF_CUTOFF_HZ  (3.0f)    // 待整定：截止频率，<=0 表示不滤波
+#define ERROR_DEADBAND_N       (0.05f)    // 待整定：张力误差死区(N)，0 表示关闭
+#define DRPM_MAX_PER_STEP      (16.0f)    // 待整定：转速变化率限制(RPM/step)，0 表示关闭
 
 PID Force_Pid = {
-    .Kp = 0.1f,    // TODO: 待整定
-    .Ki = 0.02f,   // TODO: 待整定
-    .Kd = 0.005f,  // TODO: 待整定
+    .Kp = 0.1f,    // 待整定
+    .Ki = 0.02f,   // 待整定
+    .Kd = 0.005f,  // 待整定
     .error = 0.0f,
     .prev_error = 0.0f,
     .prev_prev_error = 0.0f,

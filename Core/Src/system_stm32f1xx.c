@@ -3,7 +3,7 @@
   * @file    system_stm32f1xx.c
   * @author  MCD Application Team
   * @brief   CMSIS Cortex-M3 Device Peripheral Access Layer System Source File.
-  * 
+  *
   * 1.  This file provides two functions and one global variable to be called from 
   *     user application:
   *      - SystemInit(): Setups the system clock (System clock source, PLL Multiplier
@@ -15,7 +15,7 @@
   *      - SystemCoreClock variable: Contains the core clock (HCLK), it can be used
   *                                  by the user application to setup the SysTick 
   *                                  timer or configure other parameters.
-  *                                     
+  *
   *      - SystemCoreClockUpdate(): Updates the variable SystemCoreClock and must
   *                                 be called whenever the core clock is changed
   *                                 during program execution.
