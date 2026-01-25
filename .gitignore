@@ -9,7 +9,7 @@
 /bin
 /obj
 /out
-/MDK-ARM/ADCForceSensor
+/MDK-ARM/ADCForceSensor/
 
 # eide template
 *.ept
