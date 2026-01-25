@@ -255,6 +255,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
                 Force_Pid.Kp = kp;
                 Force_Pid.Ki = ki;
                 Force_Pid.Kd = kd;
+                printf("Set PID: Kp=%.2f Ki=%.2f Kd=%.2f\n",kp,ki,kd);
             }
             else if (strncmp((char *)usart1_cmd_buf, "ConMode", 7) == 0){
                 sscanf((char *)usart1_cmd_buf, "ConMode %hhu",&ConMode);

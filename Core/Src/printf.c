@@ -23,4 +23,3 @@ int fputc(int ch, FILE *f)
     USART1->DR = (uint8_t) ch;
     return ch;
 }
- 
