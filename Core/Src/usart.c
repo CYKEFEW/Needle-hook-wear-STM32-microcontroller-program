@@ -177,10 +177,14 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
                 ADCAutoSend = 0;
                 printf("Stop auto send ADC value\n");
             }
-            else if (strncmp((char *)usart1_cmd_buf, "Con ", 4) == 0 && ConMode == 1)
+            else if (strncmp((char *)usart1_cmd_buf, "Con ", 4) == 0)
             {
-                float value = atof((char *)usart1_cmd_buf + 4);
-                control(value);
+                if (ConMode == 1){
+                    float value = atof((char *)usart1_cmd_buf + 4);
+                    control(value);
+                } else {
+                    printf("Please set ConMode to 1 (Speed Control Mode) before using Con command.\n");
+                }
             }
             else if (strncmp((char *)usart1_cmd_buf, "Zero", 4) == 0)
             {
@@ -202,10 +206,14 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
             {
                 disable();
             }
-            else if (strncmp((char *)usart1_cmd_buf, "Con2 ", 5) == 0 && ConMode == 1)
+            else if (strncmp((char *)usart1_cmd_buf, "Con2 ", 5) == 0)
             {
-                float value = atof((char *)usart1_cmd_buf + 5);
-                control2(value);
+                if (ConMode == 1){
+                    float value = atof((char *)usart1_cmd_buf + 5);
+                    control2(value);
+                } else {
+                    printf("Please set ConMode to 1 (Speed Control Mode) before using Con2 command.\n");
+                }
             }
             else if (strncmp((char *)usart1_cmd_buf, "Forward2", 8) == 0)
             {
@@ -229,12 +237,16 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
                 // printf("CH1:%.2f CH2:%.2f\n",CH1,CH2);
                 pid(CH1,CH2);
             }
-            else if (strncmp((char *)usart1_cmd_buf, "F", 1) == 0 && ConMode == 0){
-                extern PID Force_Pid;
-                float target = 0.0f;
-                sscanf((char *)usart1_cmd_buf, "F %f",&target);
-                Force_Pid.target = target;
-                printf("Set Force target:%.2f\n",target);
+            else if (strncmp((char *)usart1_cmd_buf, "F", 1) == 0){
+                if (ConMode == 0){
+                    extern PID Force_Pid;
+                    float target = 0.0f;
+                    sscanf((char *)usart1_cmd_buf, "F %f",&target);
+                    Force_Pid.target = target;
+                    printf("Set Force target:%.2f\n",target);
+                } else {
+                    printf("Please set ConMode to 0 (Force Control Mode) before using F command.\n");
+                }
             }
             else if (strncmp((char *)usart1_cmd_buf, "pid", 3) == 0){
                 extern PID Force_Pid;
@@ -288,6 +300,8 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 
     if (huart == &huart1)
     {
+        usart1_cmd_idx = 0;
+        memset(usart1_cmd_buf, 0, sizeof(usart1_cmd_buf));
         HAL_UART_Receive_IT(&huart1, (uint8_t *)&usart1_rx_byte, 1);
     }
     else if (huart == &huart2)
