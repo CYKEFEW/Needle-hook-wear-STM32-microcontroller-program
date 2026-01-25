@@ -35,6 +35,7 @@ virtualFolder:
                 - path: Core/Src/time.c
                 - path: Core/Src/Zero.c
                 - path: Core/Src/pid.c
+                - path: Core/Src/filter.c
               folders: []
     - name: Drivers
       files: []
