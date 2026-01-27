@@ -10,17 +10,17 @@
 #define DRPM_MAX_PER_STEP      (16.0f)   // 转速变化率限制(RPM/step)，0 表示关闭
 #define NOTCH_ENABLE_RPM_MIN   (30.0f)
 #define NOTCH_K                (1.0f)    // 传动比*谐波倍数，默认1
-#define NOTCH_F0_MIN_HZ        (0.3f)
-#define NOTCH_F0_MAX_HZ        (20.0f)
+#define NOTCH_F0_MIN_HZ        (0.3f)   // 陷波器中心频率下限
+#define NOTCH_F0_MAX_HZ        (20.0f)  // 陷波器中心频率上限
 
-#define NOTCH_F0_BETA          (0.2f)
-#define NOTCH_F0_EPS_HZ        (0.05f)
+#define NOTCH_F0_BETA          (0.2f)   // 陷波器中心频率平滑系数
+#define NOTCH_F0_EPS_HZ        (0.05f)  // 陷波器中心频率变化阈值
 
 #define NOTCH_BW_HZ            (0.4f)    // 目标绝对带宽Δf
-#define NOTCH_Q_MIN            (4.0f)
-#define NOTCH_Q_MAX            (20.0f)
-#define NOTCH_Q_BETA           (0.2f)
-#define NOTCH_Q_EPS            (0.2f)
+#define NOTCH_Q_MIN            (4.0f)   // 陷波器Q值下限
+#define NOTCH_Q_MAX            (20.0f)  // 陷波器Q值上限
+#define NOTCH_Q_BETA           (0.2f)   // 陷波器Q值平滑系数
+#define NOTCH_Q_EPS            (0.2f)   // 陷波器Q值变化阈值
 // ==========================================================
 
 PID Force_Pid = {
