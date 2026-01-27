@@ -146,6 +146,7 @@ void pid(float CH1, float CH2)
         g_last_rpm = 0.0f;
         g_prev_dterm_f = 0.0f;
         g_dterm_lpf.inited = 0u;
+        g_tbar_notch.inited = 0u;
     }
 
     HAL_GPIO_TogglePin(PID_LED_GPIO_Port, PID_LED_Pin);
