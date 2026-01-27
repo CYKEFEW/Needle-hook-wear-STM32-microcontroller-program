@@ -9,7 +9,7 @@
 #define ERROR_DEADBAND_N       (0.05f)   // 张力误差死区(N)，0 表示关闭
 #define DRPM_MAX_PER_STEP      (16.0f)   // 转速变化率限制(RPM/step)，0 表示关闭
 #define NOTCH_ENABLE_RPM_MIN   (30.0f)
-#define NOTCH_K                (1.0f)    // 传动比*谐波倍数，默认1
+#define NOTCH_K                (1.0f)    // 传动比*谐波倍数，本实验为1
 #define NOTCH_F0_MIN_HZ        (0.3f)   // 陷波器中心频率下限
 #define NOTCH_F0_MAX_HZ        (20.0f)  // 陷波器中心频率上限
 
