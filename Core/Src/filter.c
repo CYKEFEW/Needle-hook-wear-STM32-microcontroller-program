@@ -40,7 +40,7 @@ float lpf1_update(lpf1_t *f, float x)
 }
 
 // 二阶 IIR 带阻滤波器（陷波器）
-void notch2_config(notch2_t*f,float f0_hz,float Q,float fs_hz)
+void notch2_config(notch2_t *f,float f0_hz,float Q,float fs_hz)
 {
     if(!f)return;
 
@@ -77,7 +77,7 @@ void notch2_config(notch2_t*f,float f0_hz,float Q,float fs_hz)
 }
 
 // 更新二阶陷波器输出。
-float notch2_update(notch2_t*f,float x)
+float notch2_update(notch2_t *f,float x)
 {
     if(!f)return x;
 

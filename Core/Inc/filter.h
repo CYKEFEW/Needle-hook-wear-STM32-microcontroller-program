@@ -26,9 +26,9 @@ typedef struct{
 } notch2_t;
 
 // 配置二阶陷波器参数。
-void notch2_config(notch2_t*f,float f0_hz,float Q,float fs_hz);
+void notch2_config(notch2_t *f,float f0_hz,float Q,float fs_hz);
 // 更新二阶陷波器输出。
-float notch2_update(notch2_t*f,float x);
+float notch2_update(notch2_t *f,float x);
 
 // 死区：抑制小幅振荡/回程间隙噪声。
 // 若 |x| < db 则为 0；否则向 0 收缩 db。
