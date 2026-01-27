@@ -17,6 +17,19 @@ void lpf1_config(lpf1_t *f, float cutoff_hz, float fs_hz);
 // 更新滤波输出。若旁路，直接返回 x。
 float lpf1_update(lpf1_t *f, float x);
 
+// 二阶 IIR 带阻滤波器（陷波器）
+typedef struct{
+    float b0,b1,b2,a1,a2;
+    float x1,x2,y1,y2;
+    float f0,fs,Q;
+    uint8_t inited;
+} notch2_t;
+
+// 配置二阶陷波器参数。
+void notch2_config(notch2_t*f,float f0_hz,float Q,float fs_hz);
+// 更新二阶陷波器输出。
+float notch2_update(notch2_t*f,float x);
+
 // 死区：抑制小幅振荡/回程间隙噪声。
 // 若 |x| < db 则为 0；否则向 0 收缩 db。
 float apply_deadband(float x, float db);
