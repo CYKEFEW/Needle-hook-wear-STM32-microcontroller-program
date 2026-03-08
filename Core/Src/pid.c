@@ -120,10 +120,11 @@ void pid(float CH1, float CH2)
     g_prev_dterm_f = dterm_f;
 
     // 5) 输出限幅（防止过大调速导致振荡/超速）
-    if (Force_Pid.output > 15.0f) {
-        Force_Pid.output = 15.0f;
-    } else if (Force_Pid.output < -15.0f) {
-        Force_Pid.output = -15.0f;
+    const float pid_out_max = 400.0f / 50.0f;
+    if (Force_Pid.output > pid_out_max) {
+        Force_Pid.output = pid_out_max;
+    } else if (Force_Pid.output < 0.0f) {
+        Force_Pid.output = 0.0f;
     }
 
     // 6) 映射为转速指令（保持你当前“*50”的工程映射）
@@ -139,11 +140,16 @@ void pid(float CH1, float CH2)
     // 转速变化率限制：降低高频调速引起的机械振动
     rpm = slew_limit(rpm, g_last_rpm, DRPM_MAX_PER_STEP);
     g_last_rpm = rpm;
+    Force_Pid.output = rpm / 50.0f;
 
     // 目标为 0 时停止，并重置微分滤波状态
     if (fabsf(Force_Pid.target) < 0.01f) {
         rpm = 0.0f;
         g_last_rpm = 0.0f;
+        Force_Pid.output = 0.0f;
+        Force_Pid.error = 0.0f;
+        Force_Pid.prev_error = 0.0f;
+        Force_Pid.prev_prev_error = 0.0f;
         g_prev_dterm_f = 0.0f;
         g_dterm_lpf.inited = 0u;
         g_tbar_notch.inited = 0u;
