@@ -14,3 +14,6 @@
 # eide template
 *.ept
 *.eide-template
+
+# essay
+essay/
