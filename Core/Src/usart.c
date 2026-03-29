@@ -232,10 +232,12 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
                 disable2();
             }
             else if (strncmp((char *)usart1_cmd_buf, "Data", 4) == 0){
-                float CH1,CH2;
-                sscanf((char *)usart1_cmd_buf, "Data %f %f",&CH1,&CH2);
-                // printf("CH1:%.2f CH2:%.2f\n",CH1,CH2);
-                pid(CH1,CH2);
+                if (ConMode == 0){
+                    float CH1,CH2;
+                    sscanf((char *)usart1_cmd_buf, "Data %f %f",&CH1,&CH2);
+                    // printf("CH1:%.2f CH2:%.2f\n",CH1,CH2);
+                    pid(CH1,CH2);
+                }
             }
             else if (strncmp((char *)usart1_cmd_buf, "F", 1) == 0){
                 if (ConMode == 0){
