@@ -1,0 +1,119 @@
+{
+    "name": "motorControl",
+    "target": "motorControl",
+    "toolchain": "AC5",
+    "toolchainLocation": "E:\\Keil_V5\\ARM\\ARMCC",
+    "toolchainCfgFile": "c:\\Users\\CYKEFEW\\.vscode\\extensions\\cl.eide-3.26.6\\res\\data\\models/arm.v5.model.json",
+    "buildMode": "fast|multhread",
+    "showRepathOnLog": true,
+    "threadNum": 16,
+    "rootDir": "e:\\Projects\\STM32\\Needle-hook-wear-monitor-motor-control",
+    "dumpPath": "build\\motorControl",
+    "outDir": "build\\motorControl",
+    "ram": 49152,
+    "rom": 262144,
+    "incDirs": [
+        ".",
+        "Core/Inc",
+        "Drivers/STM32F1xx_HAL_Driver/Inc",
+        "Drivers/STM32F1xx_HAL_Driver/Inc/Legacy",
+        "Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+        "Drivers/CMSIS/Include",
+        ".cmsis/include",
+        "MDK-ARM/RTE/_motorControl"
+    ],
+    "libDirs": [],
+    "defines": [
+        "USE_HAL_DRIVER",
+        "STM32F103xE",
+        "STM32F10X_HD"
+    ],
+    "sourceList": [
+        "Core/Src/control.c",
+        "Core/Src/filter.c",
+        "Core/Src/main.c",
+        "Core/Src/pid.c",
+        "Core/Src/printf.c",
+        "Core/Src/setTension.c",
+        "Core/Src/stm32f1xx_hal_msp.c",
+        "Core/Src/stm32f1xx_it.c",
+        "Core/Src/system_stm32f1xx.c",
+        "Core/Src/usart.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c",
+        "MDK-ARM/startup_stm32f103xe.s"
+    ],
+    "alwaysInBuildSources": [],
+    "sourceParams": {},
+    "options": {
+        "version": 4,
+        "afterBuildTasks": [],
+        "asm-compiler": {},
+        "beforeBuildTasks": [],
+        "c/cpp-compiler": {
+            "CXX_FLAGS": "--diag_suppress=1 --diag_suppress=1295",
+            "C_FLAGS": "--diag_suppress=1 --diag_suppress=1295",
+            "c99-mode": true,
+            "one-elf-section-per-function": true,
+            "optimization": "level-3",
+            "warnings": "all-warnings"
+        },
+        "global": {
+            "output-debug-info": "enable",
+            "use-microLIB": true,
+            "microcontroller-cpu": "cortex-m3",
+            "microcontroller-fpu": "cortex-m3",
+            "microcontroller-float": "cortex-m3",
+            "$arch-extensions": "",
+            "$clang-arch-extensions": "",
+            "$armlink-arch-extensions": ""
+        },
+        "linker": {
+            "$outputTaskExcludes": [
+                ".bin"
+            ],
+            "output-format": "elf",
+            "link-scatter": [
+                "e:/Projects/STM32/Needle-hook-wear-monitor-motor-control/build/motorControl/motorControl.sct"
+            ]
+        }
+    },
+    "env": {
+        "KEIL_OUTPUT_DIR": "motorControl",
+        "workspaceFolder": "e:\\Projects\\STM32\\Needle-hook-wear-monitor-motor-control",
+        "workspaceFolderBasename": "Needle-hook-wear-monitor-motor-control",
+        "OutDir": "e:\\Projects\\STM32\\Needle-hook-wear-monitor-motor-control\\build\\motorControl",
+        "OutDirRoot": "build",
+        "OutDirBase": "build\\motorControl",
+        "ProjectName": "motorControl",
+        "ConfigName": "motorControl",
+        "ProjectRoot": "e:\\Projects\\STM32\\Needle-hook-wear-monitor-motor-control",
+        "ExecutableName": "e:\\Projects\\STM32\\Needle-hook-wear-monitor-motor-control\\build\\motorControl\\motorControl",
+        "ChipPackDir": ".pack/Keil/STM32F1xx_DFP.2.3.0",
+        "ChipName": "STM32F103RC",
+        "SYS_Platform": "win32",
+        "SYS_DirSep": "\\",
+        "SYS_DirSeparator": "\\",
+        "SYS_PathSep": ";",
+        "SYS_PathSeparator": ";",
+        "SYS_EOL": "\r\n",
+        "EIDE_BUILDER_DIR": "c:\\Users\\CYKEFEW\\.vscode\\extensions\\cl.eide-3.26.6\\res\\tools\\win32\\unify_builder",
+        "EIDE_BINARIES_VER": "12.1.1",
+        "EIDE_MSYS": "C:\\Users\\CYKEFEW\\.eide\\bin\\builder\\msys\\bin",
+        "EIDE_PY3_CMD": "C:\\Users\\CYKEFEW\\.eide\\bin\\python36\\python3.exe",
+        "ToolchainRoot": "E:\\Keil_V5\\ARM\\ARMCC"
+    },
+    "sysPaths": []
+}

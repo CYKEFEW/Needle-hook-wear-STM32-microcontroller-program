@@ -1,0 +1,341 @@
+[2026-04-04 21:29:01]	[info] incremental build: 22 source files changed
+These source files will be recompiled
+---
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\control.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\filter.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\main.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\pid.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\stm32f1xx_hal_msp.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\stm32f1xx_it.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\system_stm32f1xx.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_cortex.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dma.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_exti.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_flash.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_flash_ex.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio_ex.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_pwr.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc_ex.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim_ex.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_uart.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\MDK-ARM\startup_stm32f103xe.s': object (.o) file not exist
+
+[2026-04-04 21:29:03]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol usart1_rx_byte (referred from main.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2026-04-04 21:30:45]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol usart1_rx_byte (referred from main.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2026-04-04 21:31:08]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol usart1_rx_byte (referred from main.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2026-04-04 21:31:25]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\usart.c': object (.o) file not exist
+
+[2026-04-04 21:31:25]	compilation failed at : "e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\usart.c", exit code: 1
+command: 
+  "E:\Keil_V5\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -ICore/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy -IDrivers/CMSIS/Device/ST/STM32F1xx/Include -IDrivers/CMSIS/Include -I.cmsis/include -IMDK-ARM/RTE/_motorControl -D"USE_HAL_DRIVER" -D"STM32F103xE" -D"STM32F10X_HD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O3 --split_sections --diag_suppress=1 --diag_suppress=1295 -g -o .\build\motorControl\.obj\Core\Src\usart.o --no_depend_system_headers --depend .\build\motorControl\.obj\Core\Src\usart.d .\Core\Src\usart.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Core\Src\usart.c", line 4: Error:  #20: identifier "uint8_t" is undefined
+  static uint8_t usart1_cmd_buf[512];
+         ^
+".\Core\Src\usart.c", line 5: Error:  #20: identifier "uint8_t" is undefined
+  static uint8_t usart1_cmd_idx = 0;
+         ^
+".\Core\Src\usart.c", line 7: Error:  #20: identifier "UART_HandleTypeDef" is undefined
+  extern UART_HandleTypeDef huart1;
+         ^
+".\Core\Src\usart.c", line 9: Error:  #20: identifier "uint8_t" is undefined
+  volatile uint8_t ConMode = 0; // 0:张力控制模式 1:速度控制模式
+           ^
+".\Core\Src\usart.c", line 10: Error:  #20: identifier "UART_HandleTypeDef" is undefined
+  void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+                               ^
+".\Core\Src\usart.c", line 19: Error:  #127: expected a statement
+              else if (strncmp((char *)usart1_cmd_buf, "Con ", 4) == 0)
+              ^
+".\Core\Src\usart.c", line 80: Warning:  #12-D: parsing restarts here after previous syntax error
+              usart1_cmd_idx = 0;
+                                ^
+".\Core\Src\usart.c", line 81: Warning:  #223-D: function "memset" declared implicitly
+              memset(usart1_cmd_buf, 0, sizeof(usart1_cmd_buf));
+              ^
+".\Core\Src\usart.c", line 89: Error:  #20: identifier "uint8_t" is undefined
+                      usart1_cmd_buf[usart1_cmd_idx++] = (uint8_t)usart1_rx_byte;
+                                                          ^
+".\Core\Src\usart.c", line 89: Error:  #65: expected a ";"
+                      usart1_cmd_buf[usart1_cmd_idx++] = (uint8_t)usart1_rx_byte;
+                                                                  ^
+".\Core\Src\usart.c", line 94: Warning:  #223-D: function "memset" declared implicitly
+                      memset(usart1_cmd_buf, 0, sizeof(usart1_cmd_buf));
+                      ^
+".\Core\Src\usart.c", line 95: Warning:  #223-D: function "printf" declared implicitly
+                      printf("Buffer overflow!\n");
+                      ^
+".\Core\Src\usart.c", line 100: Warning:  #223-D: function "HAL_UART_Receive_IT" declared implicitly
+          HAL_UART_Receive_IT(&huart1, (uint8_t *)&usart1_rx_byte, 1);
+          ^
+".\Core\Src\usart.c", line 100: Error:  #20: identifier "uint8_t" is undefined
+          HAL_UART_Receive_IT(&huart1, (uint8_t *)&usart1_rx_byte, 1);
+                                        ^
+".\Core\Src\usart.c", line 100: Error:  #29: expected an expression
+          HAL_UART_Receive_IT(&huart1, (uint8_t *)&usart1_rx_byte, 1);
+                                                 ^
+".\Core\Src\usart.c", line 105: Error:  #20: identifier "UART_HandleTypeDef" is undefined
+  void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
+                              ^
+".\Core\Src\usart.c", line 108: Warning:  #223-D: function "__HAL_UART_CLEAR_OREFLAG" declared implicitly
+      __HAL_UART_CLEAR_OREFLAG(huart);
+      ^
+".\Core\Src\usart.c", line 109: Warning:  #223-D: function "__HAL_UART_CLEAR_NEFLAG" declared implicitly
+      __HAL_UART_CLEAR_NEFLAG(huart);
+      ^
+".\Core\Src\usart.c", line 110: Warning:  #223-D: function "__HAL_UART_CLEAR_PEFLAG" declared implicitly
+      __HAL_UART_CLEAR_PEFLAG(huart);
+      ^
+".\Core\Src\usart.c", line 111: Warning:  #223-D: function "__HAL_UART_CLEAR_FEFLAG" declared implicitly
+      __HAL_UART_CLEAR_FEFLAG(huart);
+      ^
+".\Core\Src\usart.c", line 116: Warning:  #223-D: function "memset" declared implicitly
+          memset(usart1_cmd_buf, 0, sizeof(usart1_cmd_buf));
+          ^
+".\Core\Src\usart.c", line 117: Warning:  #223-D: function "HAL_UART_Receive_IT" declared implicitly
+          HAL_UART_Receive_IT(&huart1, (uint8_t *)&usart1_rx_byte, 1);
+          ^
+".\Core\Src\usart.c", line 117: Error:  #20: identifier "uint8_t" is undefined
+          HAL_UART_Receive_IT(&huart1, (uint8_t *)&usart1_rx_byte, 1);
+                                        ^
+".\Core\Src\usart.c", line 117: Error:  #29: expected an expression
+          HAL_UART_Receive_IT(&huart1, (uint8_t *)&usart1_rx_byte, 1);
+                                                 ^
+".\Core\Src\usart.c", line 119: Error:  #20: identifier "huart2" is undefined
+      else if (huart == &huart2)
+                         ^
+".\Core\Src\usart.c", line 121: Error:  #20: identifier "s_u2_len" is undefined
+          s_u2_len = 0;
+          ^
+".\Core\Src\usart.c", line 122: Warning:  #223-D: function "HAL_UART_Receive_IT" declared implicitly
+          HAL_UART_Receive_IT(&huart2, (uint8_t *)&s_u2_rx_byte, 1);
+          ^
+".\Core\Src\usart.c", line 122: Error:  #20: identifier "uint8_t" is undefined
+          HAL_UART_Receive_IT(&huart2, (uint8_t *)&s_u2_rx_byte, 1);
+                                        ^
+".\Core\Src\usart.c", line 122: Error:  #29: expected an expression
+          HAL_UART_Receive_IT(&huart2, (uint8_t *)&s_u2_rx_byte, 1);
+                                                 ^
+".\Core\Src\usart.c", line 122: Error:  #20: identifier "s_u2_rx_byte" is undefined
+          HAL_UART_Receive_IT(&huart2, (uint8_t *)&s_u2_rx_byte, 1);
+                                                   ^
+".\Core\Src\usart.c", line 125: Warning:  #223-D: function "printf" declared implicitly
+      printf("UART error!\n");
+      ^
+.\Core\Src\usart.c: 13 warnings, 18 errors
+
+[2026-04-04 21:31:58]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\usart.c': object (.o) file not exist
+
+[2026-04-04 21:31:58]	compilation failed at : "e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\usart.c", exit code: 1
+command: 
+  "E:\Keil_V5\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -ICore/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy -IDrivers/CMSIS/Device/ST/STM32F1xx/Include -IDrivers/CMSIS/Include -I.cmsis/include -IMDK-ARM/RTE/_motorControl -D"USE_HAL_DRIVER" -D"STM32F103xE" -D"STM32F10X_HD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O3 --split_sections --diag_suppress=1 --diag_suppress=1295 -g -o .\build\motorControl\.obj\Core\Src\usart.o --no_depend_system_headers --depend .\build\motorControl\.obj\Core\Src\usart.d .\Core\Src\usart.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Core\Src\usart.c", line 21: Error:  #127: expected a statement
+              else if (strncmp((char *)usart1_cmd_buf, "Con ", 4) == 0)
+              ^
+".\Core\Src\usart.c", line 82: Warning:  #12-D: parsing restarts here after previous syntax error
+              usart1_cmd_idx = 0;
+                                ^
+".\Core\Src\usart.c", line 83: Warning:  #223-D: function "memset" declared implicitly
+              memset(usart1_cmd_buf, 0, sizeof(usart1_cmd_buf));
+              ^
+".\Core\Src\usart.c", line 96: Warning:  #223-D: function "memset" declared implicitly
+                      memset(usart1_cmd_buf, 0, sizeof(usart1_cmd_buf));
+                      ^
+".\Core\Src\usart.c", line 97: Warning:  #223-D: function "printf" declared implicitly
+                      printf("Buffer overflow!\n");
+                      ^
+".\Core\Src\usart.c", line 118: Warning:  #223-D: function "memset" declared implicitly
+          memset(usart1_cmd_buf, 0, sizeof(usart1_cmd_buf));
+          ^
+".\Core\Src\usart.c", line 121: Error:  #20: identifier "huart2" is undefined
+      else if (huart == &huart2)
+                         ^
+".\Core\Src\usart.c", line 123: Error:  #20: identifier "s_u2_len" is undefined
+          s_u2_len = 0;
+          ^
+".\Core\Src\usart.c", line 124: Error:  #20: identifier "s_u2_rx_byte" is undefined
+          HAL_UART_Receive_IT(&huart2, (uint8_t *)&s_u2_rx_byte, 1);
+                                                   ^
+".\Core\Src\usart.c", line 127: Warning:  #223-D: function "printf" declared implicitly
+      printf("UART error!\n");
+      ^
+.\Core\Src\usart.c: 6 warnings, 4 errors
+
+[2026-04-04 21:32:19]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\usart.c': object (.o) file not exist
+
+[2026-04-04 21:32:19]	compilation failed at : "e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\usart.c", exit code: 1
+command: 
+  "E:\Keil_V5\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -ICore/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy -IDrivers/CMSIS/Device/ST/STM32F1xx/Include -IDrivers/CMSIS/Include -I.cmsis/include -IMDK-ARM/RTE/_motorControl -D"USE_HAL_DRIVER" -D"STM32F103xE" -D"STM32F10X_HD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O3 --split_sections --diag_suppress=1 --diag_suppress=1295 -g -o .\build\motorControl\.obj\Core\Src\usart.o --no_depend_system_headers --depend .\build\motorControl\.obj\Core\Src\usart.d .\Core\Src\usart.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Core\Src\usart.c", line 24: Error:  #127: expected a statement
+              else if (strncmp((char *)usart1_cmd_buf, "Con ", 4) == 0)
+              ^
+".\Core\Src\usart.c", line 85: Warning:  #12-D: parsing restarts here after previous syntax error
+              usart1_cmd_idx = 0;
+                                ^
+".\Core\Src\usart.c", line 124: Error:  #20: identifier "huart2" is undefined
+      else if (huart == &huart2)
+                         ^
+".\Core\Src\usart.c", line 126: Error:  #20: identifier "s_u2_len" is undefined
+          s_u2_len = 0;
+          ^
+".\Core\Src\usart.c", line 127: Error:  #20: identifier "s_u2_rx_byte" is undefined
+          HAL_UART_Receive_IT(&huart2, (uint8_t *)&s_u2_rx_byte, 1);
+                                                   ^
+.\Core\Src\usart.c: 1 warning, 4 errors
+
+[2026-04-04 21:32:43]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\usart.c': object (.o) file not exist
+
+[2026-04-04 21:32:43]	compilation failed at : "e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\usart.c", exit code: 1
+command: 
+  "E:\Keil_V5\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -ICore/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy -IDrivers/CMSIS/Device/ST/STM32F1xx/Include -IDrivers/CMSIS/Include -I.cmsis/include -IMDK-ARM/RTE/_motorControl -D"USE_HAL_DRIVER" -D"STM32F103xE" -D"STM32F10X_HD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O3 --split_sections --diag_suppress=1 --diag_suppress=1295 -g -o .\build\motorControl\.obj\Core\Src\usart.o --no_depend_system_headers --depend .\build\motorControl\.obj\Core\Src\usart.d .\Core\Src\usart.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Core\Src\usart.c", line 124: Error:  #20: identifier "huart2" is undefined
+      else if (huart == &huart2)
+                         ^
+".\Core\Src\usart.c", line 126: Error:  #20: identifier "s_u2_len" is undefined
+          s_u2_len = 0;
+          ^
+".\Core\Src\usart.c", line 127: Error:  #20: identifier "s_u2_rx_byte" is undefined
+          HAL_UART_Receive_IT(&huart2, (uint8_t *)&s_u2_rx_byte, 1);
+                                                   ^
+.\Core\Src\usart.c: 0 warnings, 3 errors
+
+[2026-04-04 21:33:04]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\usart.c': object (.o) file not exist
+
+[2026-04-04 21:33:04]	compilation failed at : "e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\usart.c", exit code: 1
+command: 
+  "E:\Keil_V5\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -ICore/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy -IDrivers/CMSIS/Device/ST/STM32F1xx/Include -IDrivers/CMSIS/Include -I.cmsis/include -IMDK-ARM/RTE/_motorControl -D"USE_HAL_DRIVER" -D"STM32F103xE" -D"STM32F10X_HD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O3 --split_sections --diag_suppress=1 --diag_suppress=1295 -g -o .\build\motorControl\.obj\Core\Src\usart.o --no_depend_system_headers --depend .\build\motorControl\.obj\Core\Src\usart.d .\Core\Src\usart.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Core\Src\usart.c", line 127: Error:  #20: identifier "s_u2_len" is undefined
+          s_u2_len = 0;
+          ^
+".\Core\Src\usart.c", line 128: Error:  #20: identifier "s_u2_rx_byte" is undefined
+          HAL_UART_Receive_IT(&huart2, (uint8_t *)&s_u2_rx_byte, 1);
+                                                   ^
+.\Core\Src\usart.c: 0 warnings, 2 errors
+
+[2026-04-04 21:34:36]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\usart.c': object (.o) file not exist
+
+[2026-04-04 21:34:36]	compilation failed at : "e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\usart.c", exit code: 1
+command: 
+  "E:\Keil_V5\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -ICore/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy -IDrivers/CMSIS/Device/ST/STM32F1xx/Include -IDrivers/CMSIS/Include -I.cmsis/include -IMDK-ARM/RTE/_motorControl -D"USE_HAL_DRIVER" -D"STM32F103xE" -D"STM32F10X_HD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O3 --split_sections --diag_suppress=1 --diag_suppress=1295 -g -o .\build\motorControl\.obj\Core\Src\usart.o --no_depend_system_headers --depend .\build\motorControl\.obj\Core\Src\usart.d .\Core\Src\usart.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Core\Src\usart.c", line 128: Error:  #20: identifier "s_u2_rx_byte" is undefined
+          HAL_UART_Receive_IT(&huart2, (uint8_t *)&s_u2_rx_byte, 1);
+                                                   ^
+.\Core\Src\usart.c: 0 warnings, 1 error
+
+[2026-04-04 21:35:26]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\usart.c': object (.o) file not exist
+
+[2026-04-04 21:35:26]	[done]
+	build successfully !
+
+[2026-04-04 21:35:53]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\main.c': source file has been changed.
+
+[2026-04-04 21:35:53]	[done]
+	build successfully !
+
+[2026-04-04 21:38:37]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\printf.c': object (.o) file not exist
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\setTension.c': object (.o) file not exist
+
+[2026-04-04 21:38:37]	compilation failed at : "e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\setTension.c", exit code: 1
+command: 
+  "E:\Keil_V5\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -ICore/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy -IDrivers/CMSIS/Device/ST/STM32F1xx/Include -IDrivers/CMSIS/Include -I.cmsis/include -IMDK-ARM/RTE/_motorControl -D"USE_HAL_DRIVER" -D"STM32F103xE" -D"STM32F10X_HD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O3 --split_sections --diag_suppress=1 --diag_suppress=1295 -g -o .\build\motorControl\.obj\Core\Src\setTension.o --no_depend_system_headers --depend .\build\motorControl\.obj\Core\Src\setTension.d .\Core\Src\setTension.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Core\Src\setTension.c", line 4: Warning:  #223-D: function "snprintf" declared implicitly
+      snprintf(buf, sizeof(buf), "Tension: %.2f\r", tension);
+      ^
+".\Core\Src\setTension.c", line 5: Warning:  #223-D: function "HAL_UART_Transmit" declared implicitly
+      HAL_UART_Transmit(&huart2, (uint8_t *)buf, strlen(buf), HAL_MAX_DELAY);
+      ^
+".\Core\Src\setTension.c", line 5: Error:  #20: identifier "huart2" is undefined
+      HAL_UART_Transmit(&huart2, (uint8_t *)buf, strlen(buf), HAL_MAX_DELAY);
+                         ^
+".\Core\Src\setTension.c", line 5: Error:  #20: identifier "uint8_t" is undefined
+      HAL_UART_Transmit(&huart2, (uint8_t *)buf, strlen(buf), HAL_MAX_DELAY);
+                                  ^
+".\Core\Src\setTension.c", line 5: Error:  #29: expected an expression
+      HAL_UART_Transmit(&huart2, (uint8_t *)buf, strlen(buf), HAL_MAX_DELAY);
+                                           ^
+".\Core\Src\setTension.c", line 5: Error:  #18: expected a ")"
+      HAL_UART_Transmit(&huart2, (uint8_t *)buf, strlen(buf), HAL_MAX_DELAY);
+                                            ^
+.\Core\Src\setTension.c: 2 warnings, 4 errors
+
+[2026-04-04 21:39:31]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\setTension.c': object (.o) file not exist
+
+[2026-04-04 21:39:32]	[done]
+	build successfully !
+
+[2026-04-04 21:40:47]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\Projects\STM32\Needle-hook-wear-monitor-motor-control\Core\Src\setTension.c': source file has been changed.
+
+[2026-04-04 21:40:48]	[done]
+	build successfully !
+

@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "cwd": "${workspaceRoot}",
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "motorControl: OpenOCD",
+            "servertype": "openocd",
+            "runToEntryPoint": "main",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f1x.cfg"
+            ],
+            "loadFiles": [
+                "build/motorControl/motorControl.hex"
+            ],
+            "symbolFiles": [
+                "build/motorControl/motorControl.axf"
+            ],
+            "svdFile": ".pack/Keil/STM32F1xx_DFP.2.3.0/SVD/STM32F103xx.svd"
+        }
+    ]
+}
