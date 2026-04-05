@@ -50,9 +50,9 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
             }
             else if (strncmp((char *)usart1_cmd_buf, "Data", 4) == 0){
                 if (ConMode == 0){
-                    float CH1,CH2,rpm;
-                    sscanf((char *)usart1_cmd_buf, "Data %f %f %f",&CH1,&CH2,&rpm);
-                    pid(CH1,CH2,rpm);
+                    float CH1,CH2,target_rpm;
+                    sscanf((char *)usart1_cmd_buf, "Data %f %f %f",&CH1,&CH2,&target_rpm);
+                    pid(CH1,CH2,target_rpm);
                 }
             }
             else if (strncmp((char *)usart1_cmd_buf, "F", 1) == 0){

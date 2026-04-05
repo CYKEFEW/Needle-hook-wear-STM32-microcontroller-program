@@ -27,7 +27,7 @@ virtualFolder:
                 - path: Core/Src/pid.c
                 - path: Core/Src/control.c
                 - path: Core/Src/usart.c
-                - path: Core/Src/setTension.c
+                - path: Core/Src/setTorque.c
                 - path: Core/Src/printf.c
               folders: []
     - name: Drivers

@@ -80,13 +80,14 @@ void Error_Handler(void);
 // 电机控制相关定义
 void control(float rpm);
 void silentcontrol(float rpm);
+void setTorque(float torque);
 void forward(void);
 void backward(void);
 void enable(void);
 void disable(void);
 
 // pid相关定义
-void pid(float CH1, float CH2, float rpm);
+void pid(float CH1, float CH2, float target_rpm);
 typedef struct {
     // 增量式pid
     float Kp;
