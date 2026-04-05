@@ -1,6 +1,0 @@
-tool: AC5
-fileName: 'motorControl.map'
-elfName: 'motorControl.axf'
-compilerName: 'ARM Compiler'
-compilerFullName: 'Component: ARM Compiler 5.06 update 6 (build 750)'
-compilerPath: 'E:\Keil_V5\ARM\ARMCC\bin\armcc.exe'
