@@ -7,9 +7,9 @@
 #define PID_FS_HZ             (50.0f)  // PID 控制频率，单位 Hz
 #define TENSION_LPF_CUTOFF_HZ (3.0f)   // 张力均值低通截止频率，单位 Hz
 #define DTERM_LPF_CUTOFF_HZ   (8.0f)   // 微分项低通截止频率，单位 Hz
-#define ERROR_DEADBAND_N      (0.05f)  // 张力误差死区，单位 N
-#define TORQUE_OUTPUT_MIN_NM  (0.0f)   // 转矩输出下限，单位 Nm
-#define TORQUE_OUTPUT_MAX_NM  (1.0f)   // 转矩输出上限，单位 Nm
+#define ERROR_DEADBAND_N      (0.02f)  // 张力误差死区，单位 N
+#define TORQUE_OUTPUT_MIN_NM  (0.0f)   // 力矩输出下限，单位 Nm
+#define TORQUE_OUTPUT_MAX_NM  (0.05f)   // 力矩输出上限，单位 Nm
 #define MOTOR_MAX_RPM         (400.0f) // silentcontrol 输出转速上限，单位 RPM
 
 #define NOTCH_ENABLE_RPM_MIN (30.0f) // 启用陷波的最小目标转速，单位 RPM
@@ -24,10 +24,11 @@
 #define NOTCH_Q_BETA         (0.2f)  // 陷波 Q 值平滑系数
 #define NOTCH_Q_EPS          (0.2f)  // 陷波 Q 值重配置阈值
 
+// 张力闭环，PID 输出为电机力矩命令。
 PID Force_Pid = {
-    .Kp = 0.3f,
-    .Ki = 0.1f,
-    .Kd = 0.02f,
+    .Kp = 0.015f,
+    .Ki = 0.005f,
+    .Kd = 0.001f,
     .error = 0.0f,
     .prev_error = 0.0f,
     .prev_prev_error = 0.0f,
@@ -116,7 +117,7 @@ void pid(float CH1, float CH2, float target_rpm)
         g_filter_inited = 1u;
     }
 
-    if (fabsf(Force_Pid.target) < 0.01f) {
+    if (fabsf(Force_Pid.target) < 0.002f) {
         reset_pid_state();
         HAL_GPIO_TogglePin(PID_LED_GPIO_Port, PID_LED_Pin);
         setTorque(Force_Pid.output);

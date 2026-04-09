@@ -81,6 +81,7 @@ void Error_Handler(void);
 void control(float rpm);
 void silentcontrol(float rpm);
 void setTorque(float torque);
+void focCommand(const char* command);
 void forward(void);
 void backward(void);
 void enable(void);

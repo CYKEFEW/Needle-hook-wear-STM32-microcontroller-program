@@ -77,7 +77,13 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
             }
             else if (strncmp((char *)usart1_cmd_buf, "ConMode", 7) == 0){
                 sscanf((char *)usart1_cmd_buf, "ConMode %hhu",&ConMode);
-                printf("Set Control Mode:%s\n",ConMode==0?"Force":"Speed");
+                if(ConMode == 0){
+                    focCommand("MZM1");
+                    printf("Set Control Mode: Force\n");
+                } else {
+                    focCommand("MX1");
+                    printf("Set Control Mode: Speed\n");
+                }
             }
             else
             {
