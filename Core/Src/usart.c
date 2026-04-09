@@ -85,9 +85,9 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
                     printf("Set Control Mode: Speed\n");
                 }
             }
-            else if(strncmp((char *)usart1_cmd_buf, "FOCCM", 5) == 0){
+            else if(strncmp((char *)usart1_cmd_buf, "focCM", 5) == 0){
                 char foc_command[32];
-                sscanf((char *)usart1_cmd_buf, "FOCCM %s",foc_command);
+                sscanf((char *)usart1_cmd_buf, "focCM %s",foc_command);
                 focCommand(foc_command);
                 printf("Send FOC command: %s\n",foc_command);
             }
