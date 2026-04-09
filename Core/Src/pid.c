@@ -75,23 +75,31 @@ static void reset_pid_state(void)
 
 void pid(float CH1, float CH2, float target_rpm)
 {
+    // 将两个通道的张力值取平均，作为当前控制环使用的输入张力。
     const float Tbar = (CH1 + CH2) * 0.5f;
+    // Tbar_pre 表示送入后级滤波/PID 前的张力值，默认先使用原始平均值。
     float Tbar_pre = Tbar;
+    // 对目标转速做限幅，避免给电机发送超出允许范围的转速命令。
     const float rpm_cmd = clampf_local(target_rpm, 0.0f, MOTOR_MAX_RPM);
 
+    // 目标转速较高时启用陷波滤波，抑制与转速相关的周期性干扰。
     if (rpm_cmd >= NOTCH_ENABLE_RPM_MIN) {
+        // 将目标转速映射为陷波中心频率，并限制在配置允许范围内。
         float f0_target = (rpm_cmd / 60.0f) * NOTCH_K;
         f0_target = clampf_local(f0_target, NOTCH_F0_MIN_HZ, NOTCH_F0_MAX_HZ);
 
+        // 对中心频率做平滑，避免转速变化时滤波器参数突变。
         if (!g_notch_cfg_inited) {
             g_f0_sm = f0_target;
         } else {
             g_f0_sm += NOTCH_F0_BETA * (f0_target - g_f0_sm);
         }
 
+        // 根据中心频率和带宽计算 Q 值，并同样做限幅和平滑。
         float Q_target = g_f0_sm / NOTCH_BW_HZ;
         Q_target = clampf_local(Q_target, NOTCH_Q_MIN, NOTCH_Q_MAX);
 
+        // 首次进入时直接完成陷波器配置；后续仅在参数变化足够大时重配置。
         if (!g_notch_cfg_inited) {
             g_Q_sm = Q_target;
             notch2_config(&g_tbar_notch, g_f0_sm, g_Q_sm, PID_FS_HZ);
@@ -105,18 +113,22 @@ void pid(float CH1, float CH2, float target_rpm)
             }
         }
 
+        // 将平均张力送入陷波器，得到抑制干扰后的张力信号。
         Tbar_pre = notch2_update(&g_tbar_notch, Tbar);
     } else {
+        // 低速时不使用陷波器，并清掉配置状态，便于下次重新初始化。
         g_tbar_notch.inited = 0u;
         g_notch_cfg_inited = 0u;
     }
 
+    // 首次进入时初始化张力低通和微分项低通滤波器。
     if (!g_filter_inited) {
         lpf1_config(&g_tbar_lpf, TENSION_LPF_CUTOFF_HZ, PID_FS_HZ);
         lpf1_config(&g_dterm_lpf, DTERM_LPF_CUTOFF_HZ, PID_FS_HZ);
         g_filter_inited = 1u;
     }
 
+    // 若目标张力接近 0，认为闭环暂不工作，重置 PID 与滤波器状态并直接输出最小力矩。
     if (fabsf(Force_Pid.target) < 0.002f) {
         reset_pid_state();
         HAL_GPIO_TogglePin(PID_LED_GPIO_Port, PID_LED_Pin);
@@ -126,18 +138,25 @@ void pid(float CH1, float CH2, float target_rpm)
     }
 
     {
+        // 对张力信号做低通，减少测量噪声对误差和控制输出的影响。
         const float Tbar_f = lpf1_update(&g_tbar_lpf, Tbar_pre);
+        // 当前误差 = 目标张力 - 实际张力。
         float e = Force_Pid.target - Tbar_f;
 
+        // 小误差直接压到死区内，减少输出抖动。
         e = apply_deadband(e, ERROR_DEADBAND_N);
 
         {
+            // 误差变化量作为微分原始输入，再经过低通降低微分放大噪声的问题。
             const float dterm_raw = e - Force_Pid.prev_error;
             const float dterm_f = lpf1_update(&g_dterm_lpf, dterm_raw);
 
+            // 使用增量式 PID 更新输出：
+            // 比例项看当前误差变化，积分项累积当前误差，微分项看滤波后的误差变化率。
             Force_Pid.output += Force_Pid.Kp * (e - Force_Pid.prev_error) +
                                 Force_Pid.Ki * e +
                                 Force_Pid.Kd * (dterm_f - g_prev_dterm_f);
+            // 保存历史误差和微分状态，供下一次控制周期使用。
             Force_Pid.prev_prev_error = Force_Pid.prev_error;
             Force_Pid.prev_error = e;
             Force_Pid.error = e;
@@ -145,8 +164,10 @@ void pid(float CH1, float CH2, float target_rpm)
         }
     }
 
+    // 对输出力矩限幅，确保命令始终在电机允许范围内。
     Force_Pid.output = clampf_local(Force_Pid.output, TORQUE_OUTPUT_MIN_NM, TORQUE_OUTPUT_MAX_NM);
 
+    // 输出本次 PID 计算结果，同时下发电机转速命令。
     HAL_GPIO_TogglePin(PID_LED_GPIO_Port, PID_LED_Pin);
     setTorque(Force_Pid.output);
     silentcontrol(rpm_cmd);
