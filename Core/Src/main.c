@@ -102,6 +102,8 @@ int main(void)
   // 启动USART1的接收中断
   extern volatile char usart1_rx_byte; // 声明外部变量
   HAL_UART_Receive_IT(&huart1, (uint8_t *)&usart1_rx_byte, 1);
+  // 初始化转速
+  control(0.0f);
   /* USER CODE END 2 */
 
   /* Infinite loop */

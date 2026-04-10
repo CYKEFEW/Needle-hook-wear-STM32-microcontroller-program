@@ -14,7 +14,7 @@ void control(float rpm)
         {
             // 停止TIM1
             HAL_TIM_PWM_Stop(&htim1,TIM_CHANNEL_1);
-            printf("Stop\n");
+            // printf("Stop\n");
             return;
         }
         if (rpm > rpmMAX)
