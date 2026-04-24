@@ -11,6 +11,7 @@
 #define TORQUE_OUTPUT_MIN_NM  (0.0f)   // 力矩输出下限，单位 Nm
 #define TORQUE_OUTPUT_MAX_NM  (0.05f)   // 力矩输出上限，单位 Nm
 #define MOTOR_MAX_RPM         (400.0f) // silentcontrol 输出转速上限，单位 RPM
+#define PID_INCREMENT_RATIO   (0.05f)   // 1 N 满量程误差对应 0.05 Nm 满量程力矩输出
 
 #define NOTCH_ENABLE_RPM_MIN (30.0f) // 启用陷波的最小目标转速，单位 RPM
 #define NOTCH_K              (1.0f)  // 目标转速映射到陷波中心频率的比例系数
@@ -26,9 +27,9 @@
 
 // 张力闭环，PID 输出为电机力矩命令。
 PID Force_Pid = {
-    .Kp = 0.015f,
-    .Ki = 0.005f,
-    .Kd = 0.001f,
+    .Kp = 0.30f,
+    .Ki = 0.018f,
+    .Kd = 0.04f,
     .error = 0.0f,
     .prev_error = 0.0f,
     .prev_prev_error = 0.0f,
@@ -153,9 +154,9 @@ void pid(float CH1, float CH2, float target_rpm)
 
             // 使用增量式 PID 更新输出：
             // 比例项看当前误差变化，积分项累积当前误差，微分项看滤波后的误差变化率。
-            Force_Pid.output += Force_Pid.Kp * (e - Force_Pid.prev_error) +
-                                Force_Pid.Ki * e +
-                                Force_Pid.Kd * (dterm_f - g_prev_dterm_f);
+            Force_Pid.output += PID_INCREMENT_RATIO * (Force_Pid.Kp * (e - Force_Pid.prev_error) +
+                                                       Force_Pid.Ki * e +
+                                                       Force_Pid.Kd * (dterm_f - g_prev_dterm_f));
             // 保存历史误差和微分状态，供下一次控制周期使用。
             Force_Pid.prev_prev_error = Force_Pid.prev_error;
             Force_Pid.prev_error = e;
