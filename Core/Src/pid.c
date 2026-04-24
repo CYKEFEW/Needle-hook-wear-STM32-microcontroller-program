@@ -9,7 +9,7 @@
 #define DTERM_LPF_CUTOFF_HZ   (8.0f)   // 微分项低通截止频率，单位 Hz
 #define ERROR_DEADBAND_N      (0.02f)  // 张力误差死区，单位 N
 #define TORQUE_OUTPUT_MIN_NM  (0.0f)   // 力矩输出下限，单位 Nm
-#define TORQUE_OUTPUT_MAX_NM  (0.05f)   // 力矩输出上限，单位 Nm
+#define TORQUE_OUTPUT_MAX_NM  (0.04f)   // 力矩输出上限，单位 Nm
 #define MOTOR_MAX_RPM         (400.0f) // silentcontrol 输出转速上限，单位 RPM
 #define PID_INCREMENT_RATIO   (0.05f)   // 1 N 满量程误差对应 0.05 Nm 满量程力矩输出
 
