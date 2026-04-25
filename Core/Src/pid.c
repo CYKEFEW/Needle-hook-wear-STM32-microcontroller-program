@@ -27,9 +27,9 @@
 
 // 张力闭环，PID 输出为电机力矩命令。
 PID Force_Pid = {
-    .Kp = 0.30f,
-    .Ki = 0.018f,
-    .Kd = 0.04f,
+    .Kp = 0.20f,
+    .Ki = 0.01f,
+    .Kd = 0.005f,
     .error = 0.0f,
     .prev_error = 0.0f,
     .prev_prev_error = 0.0f,

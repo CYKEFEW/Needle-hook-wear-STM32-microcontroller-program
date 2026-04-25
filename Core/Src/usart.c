@@ -14,6 +14,14 @@ extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart2;
 
 volatile uint8_t ConMode = 0; // 0:张力控制模式 1:速度控制模式
+// PID调度缓存：保存最新一次串口收到的CH1张力值，等待TIM2中断消费。
+volatile float g_pid_ch1 = 0.0f;
+// PID调度缓存：保存最新一次串口收到的CH2张力值，等待TIM2中断消费。
+volatile float g_pid_ch2 = 0.0f;
+// PID调度缓存：保存最新一次串口收到的目标转速，等待TIM2中断消费。
+volatile float g_pid_target_rpm = 0.0f;
+// PID调度标志：为1表示TIM2下一次溢出时需要执行一次PID计算。
+volatile uint8_t g_pid_pending = 0u;
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
     /* USART1：命令行 */
@@ -51,8 +59,12 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
             else if (strncmp((char *)usart1_cmd_buf, "Data", 4) == 0){
                 if (ConMode == 0){
                     float CH1,CH2,target_rpm;
-                    sscanf((char *)usart1_cmd_buf, "Data %f %f %f",&CH1,&CH2,&target_rpm);
-                    pid(CH1,CH2,target_rpm);
+                    if (sscanf((char *)usart1_cmd_buf, "Data %f %f %f",&CH1,&CH2,&target_rpm) == 3){
+                        g_pid_ch1 = CH1;
+                        g_pid_ch2 = CH2;
+                        g_pid_target_rpm = target_rpm;
+                        g_pid_pending = 1u;
+                    }
                 }
             }
             else if (strncmp((char *)usart1_cmd_buf, "F", 1) == 0){

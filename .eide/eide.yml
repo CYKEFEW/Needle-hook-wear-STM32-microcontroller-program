@@ -29,6 +29,7 @@ virtualFolder:
                 - path: Core/Src/usart.c
                 - path: Core/Src/setTorque.c
                 - path: Core/Src/printf.c
+                - path: Core/Src/tim.c
               folders: []
     - name: Drivers
       files: []
